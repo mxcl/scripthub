@@ -1,0 +1,38 @@
+#!/usr/bin/env -S pkgx +git +gum +gh +npm +jq bash
+
+set -eo pipefail
+
+if [ -d stargazer/.git ]; then
+  cd stargazer
+elif [ ! -d .git ] && gum confirm 'clone to ./stargazer?'; then
+  git clone https://github.com/pomber/stargazer
+  cd stargazer
+  npm i
+fi
+
+export REMOTION_GITHUB_TOKEN=$(gh auth token)
+
+if [ -f stargazer.json ]; then
+  user=$(cat stargazer.json | jq --raw-output .repoOrg)
+  repo=$(cat stargazer.json | jq --raw-output .repoName)
+  stars=$(cat stargazer.json | jq --raw-output .starCount)
+  duration=$(cat stargazer.json | jq --raw-output .duration)
+else
+  duration=15
+fi
+
+user=$(gum input --prompt='user or org > ' --value=${user})
+repo=$(gum input --prompt='repo name > ' --value=${repo})
+stars=$(gum input --prompt='stars to stop at > ' --value=${stars})
+duration=$(gum input --prompt='duration in seconds > ' --value=${duration})
+
+cat << EoCAT >stargazer.json
+{
+  "repoOrg": "${user}",
+  "repoName": "${repo}",
+  "starCount": ${stars},
+  "duration": ${duration}
+}
+EoCAT
+
+npm run build -- --props=./stargazer.json
