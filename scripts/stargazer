@@ -2,6 +2,18 @@
 
 set -eo pipefail
 
+if ! gh auth status >/dev/null 2>&1; then
+  gum format <<EoMD
+# error: github token required
+
+please either:
+
+1. log in to GitHub cli with \`pkgx gh auth login\`
+2. set \`GH_TOKEN\`
+EoMD
+  exit 1
+fi
+
 if [ -d stargazer/.git ]; then
   cd stargazer
 elif [ ! -d .git ] && gum confirm 'clone to ./stargazer?'; then
