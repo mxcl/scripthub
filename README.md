@@ -2,12 +2,12 @@
 
 ## Stargazer
 
-Creates a stargazer video for the repo of your choice.
+Make a stargazer video for any repo.
 
 ### Usage
 
 ```sh
-$ pkgx sh stargazer
+$ shx stargazer
 # ^^ prompts you for repo and other required inputs
 ```
 
@@ -19,6 +19,10 @@ Wraps https://github.com/pomber/stargazer for your convenience.
 
 ## Setup Git GPG
 
+Simple git commit signing.
+
+### Details
+
 Signing your git commits is important since there is no other way for the
 commit to be verified as yours. Git is a transparent system that is easy to
 spoof.
@@ -29,7 +33,8 @@ and pings GitHub so that it can verify your commit signatures.
 ### Usage
 
 ```sh
-$ pkgx sh setup-git-gpg
+$ shx setup-git-gpg
+# ^^ tells you what it’s going to do and confirms before it does it
 ```
 
 [`bpb`]: https://github.com/withoutboats/bpb
