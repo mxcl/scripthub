@@ -1,5 +1,38 @@
 # ScriptHub
 
+## Youtube Transcribe
+
+Transcribe YouTube videos.
+
+### Details
+
+Locally transcribe a remote YouTube video using yt-dlp, ffmpeg, whisper.cpp
+downloading the whisper model using huggingface-cli.
+
+### Usage
+
+```sh
+$ shx youtube-transcribe <YOUTUBE-URL>
+# ^^ you probs need to quote that URL
+```
+
+Additional arguments are passed to `whisper.cpp`, eg. `--no-timestamps` or
+`-nt` for no timestamps. Use `pkgx whisper.cpp --help` for more options.
+
+whisper.cpp is very noisy, you can hide all the informational messages by
+sending stderr to null:
+
+```sh
+$ shx youtube-transcribe youtu.be/xiq5euezOEQ 2>/dev/null
+```
+
+Redirecting stdout to a file means that file contains only the transcript:
+
+```sh
+$ shx youtube-transcribe youtu.be/xiq5euezOEQ -nt 2> transcription.txt
+```
+
+
 ## Stargazer
 
 Make a stargazer video for any repo.

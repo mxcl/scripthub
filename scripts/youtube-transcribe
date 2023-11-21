@@ -1,0 +1,21 @@
+#!/usr/bin/env -S pkgx +whisper.cpp +huggingface-cli=0.19.4 +gum +yt-dlp +ffmpeg bash
+
+set -eo pipefail
+
+if [ -z "$1" ]; then
+  echo "usage: $0 <youtube-url>" 1>&2
+  exit 64
+fi
+
+model="$(huggingface-cli download ggerganov/whisper.cpp ggml-base.en.bin)"
+
+url="$1"
+shift
+
+if [ -t 1 ]; then
+  color=--print-colors
+fi
+
+yt-dlp "$url" -f bestaudio -o - | \
+  ffmpeg -i pipe:0 -f wav -ar 16000 - | \
+  whisper.cpp --model "$model" $color "$@" -
