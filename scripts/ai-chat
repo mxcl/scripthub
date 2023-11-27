@@ -5,9 +5,16 @@ set -eo pipefail
 case "$1" in
 --help|-h|/\?)
 	gum format <<-EoMD
-		usage: $0 [--llama2|--dolphin-mistral|--llama2-13b]
+		usage: \`mash ai chat [model]\`
 
-		to just take our (evolving) suggested defaults do: $0 kk
+		models:
+		\`--llama2\`
+		\`--llama2-13b\`
+		\`--dolphin-mistral\`
+
+		leave blank for a TUI chooser.
+
+		\`mash ai chat --\` for chef’s choice.
 
 		> [llama2](https://huggingface.co/TheBloke/Llama-2-13B-chat-GGUF)
 		> [dolphin-mistral](https://huggingface.co/ehartford/dolphin-2.1-mistral-7b)
@@ -19,9 +26,7 @@ get_model_choice() {
 	case "$1" in
 	--dolphin-mistral)
 		echo 'Dolphin 2.1 Mistral 7B Q4';;
-	--llama2)
-		echo 'LLaMA 2 7B Q4';;
-	kk)
+	--llama2|--)
 		echo 'LLaMA 2 7B Q4';;
 	--llama2-13b)
 		echo 'LLaMA 2 13B Q4';;

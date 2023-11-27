@@ -1,8 +1,5 @@
 {
-  "deno.enable": true,
-  "deno.lint": true,
-  "deno.unstable": true,
   "editor.tabSize": 4,
 	"editor.insertSpaces": false,
-	"editor.detectIndentation": false
+	"editor.detectIndentation": true
 }
