@@ -1,4 +1,4 @@
-#!/usr/bin/env -S pkgx +llama.cpp +huggingface-cli=0.19.4 +gum bash
+#!/usr/bin/env -S pkgx +llama.cpp>=1833 +huggingface-cli=0.19.4 +gum bash
 
 set -eo pipefail
 
