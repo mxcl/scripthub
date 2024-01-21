@@ -11,6 +11,7 @@ case "$1" in
 		\`--llama2\`
 		\`--llama2-13b\`
 		\`--dolphin-mistral\`
+		\`--openhermes-mistral\`
 
 		leave blank for a TUI chooser.
 
@@ -30,12 +31,15 @@ get_model_choice() {
 		echo 'LLaMA 2 7B Q4';;
 	--llama2-13b)
 		echo 'LLaMA 2 13B Q4';;
+	--openhermes-mistral)
+		echo 'OpenHermes 2.5 Mistral 7B Q8';;
 	*)
 		gum choose \
 			--header '7B models are about 4 GiB, 13B are about 8 GiB' \
 			'LLaMA 2 7B Q4' \
 			'Dolphin 2.1 Mistral 7B Q4' \
-			'LLaMA 2 13B Q4'
+			'LLaMA 2 13B Q4' \
+			'OpenHermes 2.5 Mistral 7B Q8'
 	esac
 }
 
@@ -51,6 +55,10 @@ get_hf_args() {
 			llama-2-7b-chat.Q4_K_S.gguf;;
 	LLaMA\ 2\ 13B\ Q4)
 		echo TheBloke/Llama-2-13B-chat-GGUF llama-2-13b-chat.Q4_K_S.gguf;;
+	OpenHermes\ 2.5\ Mistral\ 7B\ Q8)
+		echo \
+			TheBloke/OpenHermes-2.5-Mistral-7B-GGUF \
+			openhermes-2.5-mistral-7b.Q8_0.gguf;;
 	*)
 		echo 'unexpected error' >&2
 		exit 1
@@ -64,7 +72,7 @@ get_llama_cpp_args() {
 		# context size is mostly thought to be 4096 in various places
 		echo '--ctx-size 4096 --keep -1 --batch-size 7 --instruct'
 		;;
-	Dolphin*)
+	Dolphin*|OpenHermes*)
 		echo '--chatml --n-predict -1';;
 	*)
 		echo 'unexpected error' >&2
