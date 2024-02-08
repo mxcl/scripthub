@@ -103,3 +103,14 @@ $ mash git setup-gpg
 
 `bpb` is a super simple signing utility written in rust. Typically signing
 with GPG is a complex suite of steps and tools, which is why we prefer `bpb`.
+
+
+## `mash demo scriptisto`
+
+A simple demo for scriptisto using `clang`, glib and `pkg-config`.
+
+### Usage
+
+```sh
+$ mash demo scriptisto
+```
