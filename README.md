@@ -114,3 +114,107 @@ A simple demo for scriptisto using `clang`, glib and `pkg-config`.
 ```sh
 $ mash demo scriptisto
 ```
+
+&nbsp;
+
+
+## `mash ai ui-sd`
+
+Builds and run [Stable Diffusion web UI] with more advanced models.
+
+### Usage
+
+```sh
+$ mash ai ui-sd
+```
+
+Additional arguments are passed to the app launcher.
+
+### About
+
+A browser interface based on Gradio library for Stable Diffusion.
+
+### Modifications
+
+* Builds to `~/.local/sd-webui`
+* Prompts the user to download several initial default model choices
+* Uses HuggingFace-cli to download the models to standardize model delivery across the AI app ecosystem
+* Symlinks the models to `~/.local/share/models` to share across `mash ai ui` launchers
+
+### Caveats
+
+Some of the TUI selectable models require different arguments passed to the
+launcher, so you may get garbage output if you don’t restart the UI.
+
+[Stable Diffusion web UI]: https://github.com/AUTOMATIC1111/stable-diffusion-webui
+
+&nbsp;
+
+
+## `mash ai ui-sd.next`
+
+Build and run [SD.Next], a popular fork of [Stable Diffusion web UI].
+
+### Usage
+
+```sh
+$ mash ai ui-sd.next
+```
+
+Additional arguments are passed to the app launcher.
+
+### Modifications
+
+* Builds to `~/.local/SD.Next`
+* Reuses models from the other `mash ai-ui` launchers
+
+[SD.Next]: https://github.com/vladmandic/automatic
+
+&nbsp;
+
+
+## `mash ai ui-comfy`
+
+Build and runs the [ComfyUI]: the most powerful and modular Stable Diffusion GUI and backend.
+
+### Usage
+
+```sh
+$ mash ai ui-comfy
+```
+
+Additional arguments are passed to the app launcher.
+
+### Modifications
+
+* Builds to `~/.local/ComfyUI`.
+* Reuses models from the other `mash ai-ui` launchers
+
+[ComfyUI]: https://github.com/comfyanonymous/ComfyUI
+
+&nbsp;
+
+
+## `mash ai ui-sd-ux`
+
+Build and runs [Stable Diffusion webUI-UX]: a fork of Stable Diffusion web UI
+with a more user-friendly interface.
+
+### Usage
+
+```sh
+$ mash ai ui-sd-ux
+```
+
+Additional arguments are passed to the app launcher.
+
+### About
+
+A bespoke, highly adaptable user interface for the Stable Diffusion, utilizing the powerful Gradio library. This cutting-edge browser interface offer an unparalleled level of customization and optimization for users, setting it apart from other web interfaces.
+
+### Modifications
+
+* Builds to `~/.local/sd-webui-ux`
+* Reuses models from the other `mash ai-ui` launchers
+
+[Stable Diffusion webUI-UX]: https://github.com/anapnoe/stable-diffusion-webui-ux
