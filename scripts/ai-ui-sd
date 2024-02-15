@@ -78,7 +78,7 @@ dl_model() {
 	ARGS=($4 --ckpt="$final")
 }
 
-case $(gum choose --header='model?' SD1.5 SD2.0 SD2.1 SDXL-1.0) in
+case $(gum choose --header='model?' SD1.5 SD2.0 SD2.1 SDXL-1.0 null) in
 SD1.5)
 	# sd-webui usually downloads this automatically itself, but let’s be consistent
 	# in using huggingface-cli
@@ -96,6 +96,9 @@ SD2.1)
 SDXL-1.0)
 	dl_model stabilityai/stable-diffusion-xl-base-1.0 sd_xl_base_1.0_0.9vae SDXL1.0
 	gum format "# IMPORTANT!" "set image width and height to 1024"
+	;;
+null)
+	ARGS=(--no-download-sd-model)
 	;;
 esac
 
