@@ -195,6 +195,7 @@ Additional arguments are passed to the app launcher.
 &nbsp;
 
 
+
 ## `mash ai ui-sd-ux`
 
 Build and runs [Stable Diffusion webUI-UX]: a fork of Stable Diffusion web UI
@@ -218,3 +219,25 @@ A bespoke, highly adaptable user interface for the Stable Diffusion, utilizing t
 * Reuses models from the other `mash ai-ui` launchers
 
 [Stable Diffusion webUI-UX]: https://github.com/anapnoe/stable-diffusion-webui-ux
+
+&nbsp;
+
+
+
+## `mash ai ui-facefusion`
+
+Build and runs [FaceFusion]: a next generation face swapper and enhancer.
+
+### Usage
+
+```sh
+$ mash ai ui-facefusion
+```
+
+Additional arguments are passed to the app launcher.
+
+### Modifications
+
+* Builds to `~/.local/FaceFusion`
+
+[FaceFusion]: https://github.com/facefusion/facefusion

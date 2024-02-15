@@ -16,7 +16,7 @@ fi
 
 gum format \
 	'# Stable Diffusion web UI' \
-	"* generated images are saved to \`$SRCDIR/outputs\`" \
+	"* generated images are saved to \`$OUTDIR\`" \
 	"* download additional Stable Diffusion models to \`$PREFIX/share/models\`" \
 	"${GUM}"
 
