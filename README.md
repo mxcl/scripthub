@@ -134,7 +134,7 @@ Additional arguments are passed to the app launcher.
 
 A browser interface based on Gradio library for Stable Diffusion.
 
-### Modifications
+### Fit ’n’ Finish
 
 * Builds to `~/.local/sd-webui`
 * Prompts the user to download several initial default model choices
@@ -163,7 +163,7 @@ $ mash ai ui-sd.next
 
 Additional arguments are passed to the app launcher.
 
-### Modifications
+### Fit ’n’ Finish
 
 * Builds to `~/.local/SD.Next`
 * Reuses models from the other `mash ai-ui` launchers
@@ -185,7 +185,7 @@ $ mash ai ui-comfy
 
 Additional arguments are passed to the app launcher.
 
-### Modifications
+### Fit ’n’ Finish
 
 * Builds to `~/.local/ComfyUI`.
 * Reuses models from the other `mash ai-ui` launchers
@@ -213,7 +213,7 @@ Additional arguments are passed to the app launcher.
 
 A bespoke, highly adaptable user interface for the Stable Diffusion, utilizing the powerful Gradio library. This cutting-edge browser interface offer an unparalleled level of customization and optimization for users, setting it apart from other web interfaces.
 
-### Modifications
+### Fit ’n’ Finish
 
 * Builds to `~/.local/sd-webui-ux`
 * Reuses models from the other `mash ai-ui` launchers
@@ -224,7 +224,7 @@ A bespoke, highly adaptable user interface for the Stable Diffusion, utilizing t
 
 
 
-## `mash ai ui-facefusion`
+## `mash app sherlock`
 
 Build and runs [FaceFusion]: a next generation face swapper and enhancer.
 
@@ -236,8 +236,30 @@ $ mash ai ui-facefusion
 
 Additional arguments are passed to the app launcher.
 
-### Modifications
+### Fit ’n’ Finish
 
 * Builds to `~/.local/FaceFusion`
 
 [FaceFusion]: https://github.com/facefusion/facefusion
+
+&nbsp;
+
+
+
+## `mash app sherlock`
+
+Build and runs [Sherlock]: hunt down social media accounts by username across social networks.
+
+### Usage
+
+```sh
+$ mash app sherlock <username>
+```
+
+Additional arguments are passed to the app launcher.
+
+### Fit ’n’ Finish
+
+* Builds to `~/.local/sherlock`
+
+[Sherlock]: https://github.com/sherlock-project/sherlock
