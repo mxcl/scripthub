@@ -263,3 +263,17 @@ Additional arguments are passed to the app launcher.
 * Builds to `~/.local/sherlock`
 
 [Sherlock]: https://github.com/sherlock-project/sherlock
+
+&nbsp;
+
+
+
+## `mash tea register`
+
+Create `tea.yaml` for your GitHub repos.
+
+### Usage
+
+```sh
+$ mash tea register
+```
