@@ -23,11 +23,14 @@ if [ ! -f "$SRCDIR"/run.py ]; then
 	python install.py
 else
 	cd "$SRCDIR"
-	git pull origin master --no-rebase
+	git fetch origin master
+  git merge --no-edit FETCH_HEAD
 	source venv/bin/activate
 fi
 
 # or it fails lol
 mkdir -p "$OUTDIR"
+
+set -x
 
 exec python run.py --output "$OUTDIR" "$@"
