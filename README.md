@@ -277,3 +277,17 @@ Create `tea.yaml` for your GitHub repos.
 ```sh
 $ mash tea register
 ```
+
+
+## `mash sh cronic`
+
+Cronic is a shell script to help control the most annoying feature of cron:
+unwanted emailed output, or "cram" (cron spam).
+
+### Usage
+
+```sh
+$ crontab -l
+
+ 0 12 * * * /path/to/mash sh cronic /path/to/your/script.sh
+ ```
